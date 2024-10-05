@@ -22,6 +22,7 @@ pn532 = PN532_I2C(i2c, debug=False)
 #configures the PN532 chip to operate in "card emulation" mode
     #In this mode, PN532 pretends to be a card that can be read by an NFC reader (allows 2-way communication between NFC devices)
 pn532.SAM_configuration()
+pn532.setRFField()
 
 print("Waiting for an NFC card...")
 while True:
