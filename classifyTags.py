@@ -34,6 +34,6 @@ while True:
     uid = pn532.read_passive_target(timeout = 200) #attempts to read a card
     if uid is not None:
         print(thing, "has UID ", [hex(i) for i in uid]) #prints Unique Identifier in hexadecimal format
-        nameAndUID = thing + " " + str([hex(i) for i in uid])
+        nameAndUID = thing + " " + str(uid)
         fileObject.write(nameAndUID + "\n")
         time.sleep(5)
