@@ -25,10 +25,15 @@ pn532 = PN532_I2C(i2c, debug=False)
     #In this mode, PN532 pretends to be a card that can be read by an NFC reader (allows 2-way communication between NFC devices)
 pn532.SAM_configuration()
 
+fileObject = open(r"tags_and_names", "w")
+
+thing = input("Enter animal/food name: ")
+
 print("Waiting for an NFC card...")
 while True:
     uid = pn532.read_passive_target(timeout = 200) #attempts to read a card
     if uid is not None:
-        thing = input("Enter animal/food name: ")
         print(thing, "has UID ", [hex(i) for i in uid]) #prints Unique Identifier in hexadecimal format
+        nameAndUID = thing + " " + str([hex(i) for i in uid])
+        fileObject.write(nameAndUID + "\n")
         time.sleep(5)
