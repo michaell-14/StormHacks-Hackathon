@@ -31,7 +31,7 @@ def PlayAnimation(specified_animation):
 
     clock = pygame.time.Clock()
     sprite_sheet = pygame.image.load(animation_type)
-    background = pygame.image.load("grass.png")
+    
     frame_width = 50
     frame_height = 50
 
@@ -47,7 +47,7 @@ def PlayAnimation(specified_animation):
 
         all_sprites.update()
         screen.fill((120,120,120))
-        screen.blit(background, (0, 0))
+       
         all_sprites.draw(screen)
         pygame.display.flip()
         clock.tick(5)
