@@ -33,6 +33,6 @@ while True:
     if uid is not None:
         thing = input("Enter animal/food name: " + "\n")
         print(thing, "has UID ", [hex(i) for i in uid]) #prints Unique Identifier in hexadecimal format
-        nameAndUID = thing + ": " + ''.join([hex(i)[2:] for i in uid].zfill(2))
+        nameAndUID = thing + ": " + ''.join([hex(i)[2:].zfill(2) for i in uid])
         fileObject.write(nameAndUID + "\n")
         fileObject.flush()
