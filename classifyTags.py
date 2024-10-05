@@ -36,4 +36,5 @@ while True:
         print(thing, "has UID ", [hex(i) for i in uid]) #prints Unique Identifier in hexadecimal format
         nameAndUID = thing + " " + str(uid)
         fileObject.write(nameAndUID + "\n")
+        fileObject.flush()
         time.sleep(5)
