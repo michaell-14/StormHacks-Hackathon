@@ -11,6 +11,7 @@ clock = pygame.time.Clock()
 
 
 ground_surf = pygame.image.load('animations/ground.png').convert_alpha()
+ground_surf = pygame.transform.scale(ground_surf, (800, ground_surf.get_height() * 800 // ground_surf.get_width()))
 
 ground_rect = ground_surf.get_rect(center = (400,200))
 
