@@ -27,14 +27,12 @@ pn532.SAM_configuration()
 
 fileObject = open(r"tags_and_names", "w")
 
-thing = input("Enter animal/food name: ")
-
-print("Waiting for an NFC card...")
 while True:
+    print("Waiting for an NFC card...")
     uid = pn532.read_passive_target(timeout = 200) #attempts to read a card
     if uid is not None:
+        thing = input("Enter animal/food name: ")
         print(thing, "has UID ", [hex(i) for i in uid]) #prints Unique Identifier in hexadecimal format
-        nameAndUID = thing + " " + str([hex(i) for i in uid])
+        nameAndUID = thing + " = " + str([hex(i) for i in uid])
         fileObject.write(nameAndUID + "\n")
         fileObject.flush()
-        time.sleep(5)
