@@ -1,7 +1,11 @@
 import pygame
 from Animations import PlayAnimation
 
-PlayAnimation("Lion")
-PlayAnimation("Lion_h")
-PlayAnimation("Monkey")
-PlayAnimation("Monkey_h")
+NFC_tags = {
+    34343 : "Lion",
+    23223 : "Monkey"
+}
+
+currentAnimal = NFC_tags(uid)
+
+PlayAnimation(currentAnimal)
