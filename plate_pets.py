@@ -12,22 +12,26 @@ clock = pygame.time.Clock()
 test_font = pygame.font.Font('animations/Pixeltype.ttf', 70)
 
 
-title_surf = test_font.render('special kaykay game game', False, 'Black' )
+#title card
+text = "special kaykay game game"
+title_surf = test_font.render(text, False, 'Black' )
 title_rect = title_surf.get_rect(midtop = (width/2,50))
 
 #making grount surface
 ground_surf = pygame.image.load('animations/ground.png').convert_alpha()
 ground_surf = pygame.transform.scale(ground_surf, (width, ground_surf.get_height() * width // ground_surf.get_width()))
-ground_rect = ground_surf.get_rect(midbottom = (width/2,height))
-#top of grass is around 320ish
-
+ground_rect = ground_surf.get_rect(midbottom = (width/2,height)) #top of grass is around 310
 
 #making sky surfce
 sky_surf = pygame.image.load('animations/sky.png').convert_alpha()
 sky_surf = pygame.transform.scale(sky_surf, (width, sky_surf.get_height() * width // sky_surf.get_width()))
-sky_rect = sky_surf.get_rect(midtop = (width/2,0))
+sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
-
+#set up animal 
+animal_size = 100
+animal_surf =  #call the animation function 
+animal_surf = pygame.transform.scale(animal_surf, (animal_size,animal_surf.get_height()*animal_size // animal_surf.get_width()))
+animal_rect = animal_surf.get_rect(midbottom = (250, 350))
 
 
 while True:
@@ -37,14 +41,19 @@ while True:
             exit()
 
 
-
+    #setup the backround
     screen.blit(sky_surf, sky_rect)
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
     
 
+    #put animal 
+    screen.blit(animal_surf,animal_rect)
 
-    
+
+  
+    #print(ground_rect.top)
+    #print(sky_rect.bottom)
 
 
     pygame.display.update() #updates the display surface
