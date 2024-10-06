@@ -4,6 +4,7 @@ from Animations import PlayAnimation
 import tagStuff
 from tagStuff import checkMatch
 import time
+import sys
 
 pygame.init()
 
@@ -33,6 +34,10 @@ sky_surf = pygame.transform.scale(sky_surf, (width, sky_surf.get_height() * widt
 sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 animal_tag = tagStuff.readTag()
+
+if animal_tag != "lion" or "bunny" or "monkey":
+    sys.stderr.write('Invalid animal tag\n')
+
 animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
 animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"), 700, 350)
 animal_sad_surf = PlayAnimation(f"animations/{animal_tag}_s", 700, 350)
@@ -40,6 +45,10 @@ animal_sad_surf = PlayAnimation(f"animations/{animal_tag}_s", 700, 350)
 time.sleep(2)
 
 food_tag = tagStuff.readTag()
+
+if food_tag != "banana" or "meat" or "carrot":
+    sys.stderr.write('Invalid food tag\n')
+
 food_surf = PlayAnimation((f"animations/{food_tag}"), 800, 350)
 eating_food_surf = PlayAnimation(f"animations/{food_tag}_eat", 800, 350)
 
