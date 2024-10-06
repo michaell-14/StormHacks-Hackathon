@@ -5,6 +5,8 @@ import tagStuff
 #from tagStuff import readTag
 #from tagStuff import checkMatch
 
+import os 
+
 pygame.init()
 
 #initial info and set up
