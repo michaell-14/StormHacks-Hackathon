@@ -1,6 +1,8 @@
 import tagStuff
+import time
 
 animalRead = tagStuff.readTag() #call Victor's readTag function to get the value associated with the tag's UID
+time.sleep(1)
 foodRead = tagStuff.readTag() #call Victor's readTag function to get the value associated with the tag's UID
 checkMatch = tagStuff.checkMatch(animalRead, foodRead) #call Victor's checkMatch function to check if the animal and food match
 
