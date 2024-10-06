@@ -81,7 +81,7 @@ while True:
       #  print("Sprites updated and drawn")  # Debug prin
 
     pygame.display.update()
-    print(all_sprites)
+    #print(all_sprites)
 
     while item0_drawn == False:
         animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
@@ -97,7 +97,7 @@ while True:
     if not run_once1 :
         input2 = tagStuff.readTag()
         run_once1 = True
-        print("tag read again")
+        print(f"tag2 read: {input2}")
 
     
     while item1_drawn == False:  
