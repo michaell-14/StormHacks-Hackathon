@@ -23,9 +23,9 @@ def scan_tag():
                 if tag not in tags:
                     tags.append(tag)
                     print("New tag found: ", tag)
+                    time.sleep(0.1)  # Prevent excessive polling
                 if tags.__len__() == 2:
                     print("Two tags found")
-                    time.sleep(0.05)
                 break
         else: 
             continue
