@@ -1,6 +1,7 @@
 import pygame
 from sys import exit
 from Animations import PlayAnimation
+import tagStuff
 
 pygame.init()
 
@@ -30,8 +31,8 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 firstAnimal = "Lion"
 firstFood = "Banana"
-animal_surf = PlayAnimation((f"animations/{firstAnimal}"), 250, 350)
-animal_surf1 = PlayAnimation((f"animations/{firstFood}"), 250, 350)
+animal_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 250, 350)
+food_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 250, 350)
 
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
@@ -52,7 +53,7 @@ while True:
   
 
     animal_surf.draw(screen)
-    animal_surf1.draw(screen)
+    food_surf.draw(screen)
     key = pygame.key.get_pressed()
 
     if key[pygame.K_LEFT]:
@@ -67,11 +68,11 @@ while True:
             pygame.time.wait(300)
             
     for sprite in animal_surf:
-        for sprite1 in animal_surf1:
+        for sprite1 in food_surf:
             if sprite.rect.colliderect(sprite1.rect):
                 print("Collision detected!")
    
     animal_surf.update()
-    animal_surf1.update()
+    food_surf.update()
     pygame.display.update() #updates the display surface
     clock.tick(60) #while look shouldnt run faster then 60x per second
