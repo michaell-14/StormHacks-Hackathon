@@ -57,7 +57,7 @@ while True:
     screen.blit(sky_surf, sky_rect)
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
-    pygame.display.update() #updates the display surface
+    
     
     if input1_filled:
         input1 = tagStuff.readTag()
@@ -65,11 +65,7 @@ while True:
         input1_filled = True
 
 
-    try:
-        animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
-    except FileNotFoundError:
-        print(f"Animation for {input1} not found.")
-        continue
+    animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
     animal_surf.update()
 
@@ -113,5 +109,6 @@ while True:
 
     animal_surf.update()
     food_surf.update()
+    pygame.display.update() #updates the display surface
     
     clock.tick(60) #while look shouldnt run faster then 60x per second
