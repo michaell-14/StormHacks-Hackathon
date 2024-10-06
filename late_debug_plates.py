@@ -39,9 +39,11 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 # animal_surf = PlayAnimation((f"animations/{firstAnimal}"), 250, 350)
 # animal_surf1 = PlayAnimation((f"animations/{firstFood}"), 250, 350)
 
+#test values introduced during debugging
 item0_drawn = False
 item1_drawn = False
-all_sprites = pygame.sprite.Group()  # Initialize the sprite group in this scope
+all_sprites = pygame.sprite.Group()# Initialize the sprite group in this scope
+boolean_set = False
 
 #playing the background music
 pygame.mixer.init()
@@ -90,14 +92,15 @@ while True:
 
         else:
             print("Failed to create food_surf animation")
-
-    # Update and draw all sprites
-    all_sprites.update()
-    all_sprites.draw(screen)
-    pygame.display.update()
-    print("Sprites updated and drawn")  # Debug print
-
-    pygame.time.wait(10)
+    if boolean_set == False:
+            # Update and draw all sprites
+            all_sprites.update()
+            all_sprites.draw(screen)
+            pygame.display.update()
+            print("Sprites updated and drawn")  # Debug print
+            pygame.time.wait(100)
+            boolean_set == True
+            print("value switched")
 
     key = pygame.key.get_pressed()
 
