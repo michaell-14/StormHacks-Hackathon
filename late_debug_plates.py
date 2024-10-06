@@ -39,6 +39,9 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 # animal_surf = PlayAnimation((f"animations/{firstAnimal}"), 250, 350)
 # animal_surf1 = PlayAnimation((f"animations/{firstFood}"), 250, 350)
 
+item0_drawn = False
+item1_drawn = False
+
 #playing the background music
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
@@ -72,11 +75,12 @@ while True:
 
     if not os.path.exists(animation_path):
         print(f"Error: The file {animation_path} does not exist.")
-    
-    animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
-    animal_surf.draw(screen)
-    print("animal drawn")
-    print(PlayAnimation)
+    while item0_drawn == False:
+        animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
+        animal_surf.draw(screen)
+        #print(PlayAnimation)
+        item0_drawn = True
+    print("item0 drawn")
     animal_surf.update()
 
     pygame.time.wait(1000)
@@ -87,10 +91,11 @@ while True:
         print("tag read again")
 
     
-      
-    food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
-    food_surf.draw(screen)
-    print("other animal drawn")
+    while item1_drawn == False:  
+        food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
+        food_surf.draw(screen)
+        item1_drawn == True
+    print("item1 drawn")
     food_surf.update()
 
 
