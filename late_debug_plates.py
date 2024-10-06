@@ -32,6 +32,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 animal_tag = tagStuff.readTag()
 animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
+animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"))
 
 time.sleep(2)
 food_tag = tagStuff.readTag()
@@ -48,18 +49,20 @@ while True:
             pygame.quit() #quits
             exit()
 
-    
+    key = pygame.key.get_pressed()
     #setup the backround
     screen.blit(sky_surf, sky_rect)
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
    
-
-    animal_surf.draw(screen)
+    if not eaten:
+        animal_surf.draw(screen)
+    if eaten:
+        eating_food_surf.draw(screen)
     if not eaten:   
         food_surf.draw(screen)
         
-    key = pygame.key.get_pressed()
+    
     
     if eaten:
         eating_food_surf.draw(screen)
@@ -77,15 +80,14 @@ while True:
             
     for sprite in animal_surf:
         for sprite1 in food_surf:
-            if sprite.rect.colliderect(sprite1.rect):
-                print("Collision detected!")
-                
-                
+            if (sprite.rect.colliderect(sprite1.rect) & tagStuff.checkMatch(food_tag, animal_tag)):
+                print("Collision detected!")                       
                 eaten = True
    
 
     animal_surf.update()
     food_surf.update()
     eating_food_surf.update()
+    animal_happy_surf.update()
     pygame.display.update() #updates the display surface
     clock.tick(15) #while look shouldnt run faster then 60x per second
