@@ -1,7 +1,7 @@
 import pygame, sys
 
 class SpriteSheetAnimation(pygame.sprite.Sprite):
-    def __init__(self, sprite_sheet, frame_width, frame_height):
+    def __init__(self, sprite_sheet, frame_width, frame_height, pos_x, pos_y):
         super().__init__()
         self.frames = []
 
@@ -14,8 +14,8 @@ class SpriteSheetAnimation(pygame.sprite.Sprite):
         self.index = 0
         self.image = self.frames[self.index]
         
-        self.rect = self.image.get_rect(midbottom = (250, 350))
-        self.flip_delay = 100  # Time in milliseconds between frames
+        self.rect = self.image.get_rect(midbottom = (pos_x, pos_y))
+        self.flip_delay = 500  # Time in milliseconds between frames
         self.last_flip_time = pygame.time.get_ticks()
 
     def update(self):
@@ -28,30 +28,18 @@ class SpriteSheetAnimation(pygame.sprite.Sprite):
     
 
 
-def PlayAnimation(specified_animation):
+def PlayAnimation(specified_animation, pos_x, pos_y):
     animation_type = f"{specified_animation}.png"
   
     sprite_sheet = pygame.image.load(animation_type)
     
 
-    frame_width = int(sprite_sheet.get_width() / 2)
+    frame_width = 50
     frame_height = int(sprite_sheet.get_height())
 
-    animated_sprite = SpriteSheetAnimation(sprite_sheet, frame_width, frame_height)
+    animated_sprite = SpriteSheetAnimation(sprite_sheet, frame_width, frame_height, pos_x, pos_y)
     all_sprites = pygame.sprite.Group(animated_sprite)
 
     return all_sprites
 
-    #running = True
 
-    #while(running):
-        #for event in pygame.event.get():
-            #if (event.type == pygame.QUIT):
-                #running = False
-
-        #all_sprites.update()
-        #screen.fill((120,120,120))
-       
-        #all_sprites.draw(screen)
-        #pygame.display.flip()
-        #clock.tick(5)
