@@ -71,7 +71,7 @@ while True:
         print(f"tag read: {input1}")
     
     all_sprites = PlayAnimation(f"animations/{input1}", 200, 350)
-    
+
     if all_sprites is None:
         print("Failed to create animation")            
         break
@@ -81,8 +81,6 @@ while True:
         all_sprites.draw(screen)
         print("Sprites updated and drawn")  # Debug prin
 
-    if not os.path.exists(animation_path):
-        print(f"Error: The file {animation_path} does not exist.")
     while item0_drawn == False:
         animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
         animal_surf.draw(screen)
