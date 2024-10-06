@@ -68,41 +68,41 @@ while True:
     screen.blit(title_surf,title_rect)
     pygame.display.update() #updates the display surface
     print("background")
-    if boolA == False:
-        if not run_once:
-            input1 = tagStuff.readTag()
-            run_once = True
-            print(f"tag read: {input1}")
+    if not run_once:
+        input1 = tagStuff.readTag()
+        run_once = True
+        print(f"tag read: {input1}")
     
-            animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
-            if animal_surf:
-                all_sprites.add(animal_surf)
-                print("item0 drawn")
-            else:
-                print("Failed to create animal_surf animation")
+        animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
+        if animal_surf:
+            all_sprites.add(animal_surf)
+            print("item0 drawn")
+        else:
+            print("Failed to create animal_surf animation")
 
-        if not run_once1:
-            input2 = tagStuff.readTag()
-            run_once1 = True
-            print(f"tag2 read: {input2}")
+    if not run_once1:
+        input2 = tagStuff.readTag()
+        run_once1 = True
+        print(f"tag2 read: {input2}")
 
-            food_surf = PlayAnimation(f"animations/{input2}", 800, 370)
-            if food_surf:
-                all_sprites.add(food_surf)
-                print("item1 drawn")
+        food_surf = PlayAnimation(f"animations/{input2}", 800, 370)
+        if food_surf:
+            all_sprites.add(food_surf)
+            print("item1 drawn")
+        else:
+            print("Failed to create food_surf animation")
 
-            else:
-                print("Failed to create food_surf animation")
-        if boolean_set == False:
-                # Update and draw all sprites
-                all_sprites.update()
-                all_sprites.draw(screen)
-                pygame.display.update()
-                print("Sprites updated and drawn")  # Debug print
-                pygame.time.wait(100)
-                boolean_set == True
-                print("value switched")
-    boolA = True
+    # Update and draw all sprites
+    all_sprites.update()
+    all_sprites.draw(screen)
+    pygame.display.update()
+    print("Sprites updated and drawn")  # Debug print
+
+    pygame.time.wait(100)
+    if not boolean_set:
+        boolean_set = True
+        print("value switched")
+
 
     key = pygame.key.get_pressed()
 
