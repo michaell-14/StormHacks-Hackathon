@@ -28,15 +28,18 @@ sky_surf = pygame.image.load('animations/sky.png').convert_alpha()
 sky_surf = pygame.transform.scale(sky_surf, (width, sky_surf.get_height() * width // sky_surf.get_width()))
 sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
-#set up animal 
+#set up animal
 animal_size = 100
-animal_surf = PlayAnimation("animations/Lion")
+animal_surf = PlayAnimation("animations/Lion", 250, 350)
+animal_surf1 = PlayAnimation("animations/Monkey", 600, 350)
 
-#animal_surf = pygame.transform.scale(animal_surf, (animal_size,animal_surf.get_height()*animal_size // animal_surf.get_width()))
-#animal_rect = animal_surf.get_rect(midbottom = (250, 350))
-
+#playing the background music
+pygame.mixer.init()
+pygame.mixer.music.load('this-8-bit-music-245266.mp3')
+pygame.mixer.music.play(-1)
 
 while True:
+
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
             pygame.quit() #quits
@@ -48,21 +51,33 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
     
-    key = pygame.key.get_pressed()
-    
+  
     #put animal 
-    #screen.blit(animal_surf)
-    animal_surf.update()
-    animal_surf.draw(screen)
    
+
+    animal_surf.draw(screen)
+    animal_surf1.draw(screen)
+   
+
     
-    if key[pygame.K_SPACE]:
+    key = pygame.key.get_pressed()
+    if key[pygame.K_LEFT]:
+    
+        for sprite in animal_surf:
+            sprite.rect.x -= 5
+            
+    if key[pygame.K_RIGHT]:
+ 
         for sprite in animal_surf:
             sprite.rect.x += 5
-
-    #print(ground_rect.top)
-    #print(sky_rect.bottom)
+            
+    for sprite in animal_surf:
+        for sprite1 in animal_surf1:
+            if sprite.rect.colliderect(sprite1.rect):
+                print("Collision detected!")
+  
 
     animal_surf.update()
+    animal_surf1.update()
     pygame.display.update() #updates the display surface
     clock.tick(60) #while look shouldnt run faster then 60x per second
