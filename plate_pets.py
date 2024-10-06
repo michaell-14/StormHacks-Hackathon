@@ -14,7 +14,7 @@ test_font = pygame.font.Font('animations/Pixeltype.ttf', 70)
 
 
 #title card
-text = "special kaykay game game"
+text = "Plate Pets!"
 title_surf = test_font.render(text, False, 'Black' )
 title_rect = title_surf.get_rect(midtop = (width/2,50))
 
@@ -31,7 +31,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 #set up animal
 animal_size = 100
 animal_surf = PlayAnimation("animations/Lion", 250, 350)
-animal_surf1 = PlayAnimation("animations/Monkey", 600, 350)
+animal_surf1 = PlayAnimation("animations/Meat", 600, 350)
 
 #playing the background music
 pygame.mixer.init()
