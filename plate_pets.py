@@ -48,11 +48,17 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
     
-
+    key = pygame.key.get_pressed()
+    
     #put animal 
     #screen.blit(animal_surf)
     animal_surf.update()
     animal_surf.draw(screen)
+   
+    
+    if key[pygame.K_SPACE]:
+        for sprite in animal_surf:
+            sprite.rect.x += 5
 
     #print(ground_rect.top)
     #print(sky_rect.bottom)

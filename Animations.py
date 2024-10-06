@@ -8,8 +8,8 @@ class SpriteSheetAnimation(pygame.sprite.Sprite):
         for y in range(0, sprite_sheet.get_height(), frame_height):
             for x in range(0, sprite_sheet.get_width(), frame_width):
                 frame = sprite_sheet.subsurface(x, y, frame_width, frame_height)
-               
-                self.frames.append(frame)
+                scaled_frame = pygame.transform.scale(frame, (200, 172))
+                self.frames.append(scaled_frame)
 
         self.index = 0
         self.image = self.frames[self.index]
@@ -25,6 +25,9 @@ class SpriteSheetAnimation(pygame.sprite.Sprite):
             self.image = self.frames[self.index]
             self.last_flip_time = current_time
 
+    
+
+
 def PlayAnimation(specified_animation):
     animation_type = f"{specified_animation}.png"
   
@@ -36,6 +39,7 @@ def PlayAnimation(specified_animation):
 
     animated_sprite = SpriteSheetAnimation(sprite_sheet, frame_width, frame_height)
     all_sprites = pygame.sprite.Group(animated_sprite)
+
     return all_sprites
 
     #running = True
