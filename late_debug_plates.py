@@ -81,7 +81,7 @@ while True:
             
     for sprite in animal_surf:
         for sprite1 in food_surf:
-            if (sprite.rect.colliderect(sprite1.rect) and checkMatch(animal, food) == True):
+            if (sprite.rect.colliderect(sprite1.rect) and checkMatch(animal_tag, food_tag) == True):
                 print("Collision detected!")                       
                 eaten = True
            
