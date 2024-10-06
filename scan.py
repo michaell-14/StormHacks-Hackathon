@@ -8,15 +8,14 @@ i2c = busio.I2C(board.SCL, board.SDA)
 pn532 = PN532_I2C(i2c, debug=False)
 pn532.SAM_configuration()
 
-print("Waiting for an NFC card...")
-tag1 = None
-tag2 = None
+tag1 = 0
+tag2 = 0
 f = 0
 
 while f == 0:
     print("Waiting for an NFC card..." + "\n")
     uid = pn532.read_passive_target() #attempts to read a card
-    if tag1 is None:
+    if tag1 is 0:
         tag1 = [hex(i) for i in uid]
         print("tag1: ", tag1)
     elif [hex(i) for i in uid] == tag1:
