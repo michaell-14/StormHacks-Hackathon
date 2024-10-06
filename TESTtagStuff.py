@@ -51,10 +51,12 @@ def readTagBackground(tag_var):
             if tag_var == "input1":
                 input1 = tagsAndNames.get(uidKey)
                 print(f"Animal tag detected: {input1}")
+                return input1
             elif tag_var == "input2":
                 input2 = tagsAndNames.get(uidKey)
                 print(f"Food tag detected: {input2}")
-            return  # Exit the function once a tag is detected
+                return input2
+           
 
 def start_scan_animal():
     animal_thread = threading.Thread(target=readTagBackground, args=("input1",))

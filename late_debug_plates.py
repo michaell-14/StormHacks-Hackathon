@@ -72,26 +72,30 @@ while True:
 
     if input1 is None:
         print("Starting animal tag scan...")
-        TESTtagStuff.start_scan_animal()
+        input1 = TESTtagStuff.start_scan_animal()
 
     # Once animal tag is scanned, play the animation
     if input1:
         animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
         if animal_surf:
-            all_sprites.add(animal_surf)
             print(f"Animal animation created for: {input1}")
         else:
             print("Failed to create animal animation")
 
 
-    # Once animal tag is scanned, play the animation
-    if input1:
-        animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
-        if animal_surf:
-            all_sprites.add(animal_surf)
-            print(f"Animal animation created for: {input1}")
+    if input2 is None:
+        print("Starting food tag scan...")
+        input2 = TESTtagStuff.start_scan_food()
+
+    # Once food tag is scanned, play the animation
+    if input2:
+        food_surf = PlayAnimation(f"animations/{input2}", 800, 370)
+        if food_surf:
+
+            print(f"Food animation created for: {input2}")
         else:
-            print("Failed to create animal animation")
+            print("Failed to create food animation")
+
         
             
     food_surf = PlayAnimation(f"animations/{input2}", 800, 370)
