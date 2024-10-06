@@ -64,7 +64,7 @@ while True:
 
     animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
-    
+    animal_surf.update()
 
     pygame.time.wait(1000)
    
@@ -76,7 +76,7 @@ while True:
       
     food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
     food_surf.draw(screen)
-
+    food_surf.update()
 
 
     key = pygame.key.get_pressed()
