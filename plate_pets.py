@@ -33,13 +33,13 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 #set up animal
 animal_size = 100
-animal_surf = PlayAnimation("animations/Lion", 250, 350)
-animal_surf1 = PlayAnimation("animations/Monkey", 600, 350)
+animal_surf = PlayAnimation("animations/bunny", 250, 350)
+animal_surf1 = PlayAnimation("animations/meat_eat", 600, 400)
 
-#playing the background music
-pygame.mixer.init()
-pygame.mixer.music.load('this-8-bit-music-245266.mp3')
-pygame.mixer.music.play(-1)
+# #playing the background music
+# pygame.mixer.init()
+# pygame.mixer.music.load('this-8-bit-music-245266.mp3')
+# pygame.mixer.music.play(-1)
 
 while True:
 
@@ -67,18 +67,26 @@ while True:
     if key[pygame.K_LEFT]:
     
         for sprite in animal_surf:
-            sprite.rect.x -= 5
+            sprite.rect.x -= 50
+            pygame.time.wait(300)
+            pygame.mixer.Sound('cartoon-jump.mp3').play()
             
     if key[pygame.K_RIGHT]:
  
         for sprite in animal_surf:
-            sprite.rect.x += 5
+            sprite.rect.x += 50
+            pygame.time.wait(300)
+            pygame.mixer.Sound('cartoon-jump.mp3').play()
             
     for sprite in animal_surf:
         for sprite1 in animal_surf1:
             if sprite.rect.colliderect(sprite1.rect):
                 print("Collision detected!")
-  
+                  
+
+                
+                
+
 
     animal_surf.update()
     animal_surf1.update()
