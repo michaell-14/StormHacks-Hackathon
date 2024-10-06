@@ -75,6 +75,7 @@ while True:
         if animal_surf:
             all_sprites.add(animal_surf)
             print("item0 drawn")
+            pygame.display.update()
         else:
             print("Failed to create animal_surf animation")
 
@@ -87,6 +88,7 @@ while True:
         if food_surf:
             all_sprites.add(food_surf)
             print("item1 drawn")
+            pygame.display.update()
         else:
             print("Failed to create food_surf animation")
 
@@ -96,8 +98,7 @@ while True:
     all_sprites.draw(screen)
     print("Sprites updated and drawn")  # Debug print
 
-    pygame.display.update()
-    pygame.time.wait(1000)
+    pygame.time.wait(10)
 
     key = pygame.key.get_pressed()
 
