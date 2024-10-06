@@ -1,3 +1,6 @@
+import tagStuff #import Victor's tagStuff.py file that contains the readTag function which returns the value associated with tag's UID
+import time #import time module to use sleep function
+
 import pygame
 from sys import exit
 from Animations import PlayAnimation
