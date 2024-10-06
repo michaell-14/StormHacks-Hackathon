@@ -72,11 +72,7 @@ while True:
         print(f"tag read: {input1}")
     
       
-        if animal_surf:
-            all_sprites.add(animal_surf)
-            print("item0 drawn")
-        else:
-            print("Failed to create animal_surf animation")
+       
             
     animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
     if not run_once1:
@@ -85,16 +81,11 @@ while True:
         print(f"tag2 read: {input2}")
 
        
-        if food_surf:
-            all_sprites.add(food_surf)
-            print("item1 drawn")
-        else:
-            print("Failed to create food_surf animation")
+        
             
     food_surf = PlayAnimation(f"animations/{input2}", 800, 370)
     # Update and draw all sprites
-    all_sprites.update()
-    all_sprites.draw(screen)
+  
     pygame.display.update()
     print("Sprites updated and drawn")  # Debug print
 
