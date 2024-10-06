@@ -32,7 +32,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 animal_tag = tagStuff.readTag()
 animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
-animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"))
+animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"), 800, 350)
 
 time.sleep(2)
 food_tag = tagStuff.readTag()
@@ -83,6 +83,7 @@ while True:
             if (sprite.rect.colliderect(sprite1.rect) & tagStuff.checkMatch(food_tag, animal_tag)):
                 print("Collision detected!")                       
                 eaten = True
+           
    
 
     animal_surf.update()
