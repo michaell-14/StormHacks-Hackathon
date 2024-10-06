@@ -65,11 +65,15 @@ while True:
         input1_filled = True
 
 
-    animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
+    try:
+        animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
+    except FileNotFoundError:
+        print(f"Animation for {input1} not found.")
+        continue
     animal_surf.draw(screen)
     animal_surf.update()
 
-    pygame.time.wait(1000)
+    pygame.time.wait(5000)
    
     if input2_filled:
         input2 = tagStuff.readTag()
