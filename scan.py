@@ -12,7 +12,6 @@ tags = []
 f = 0
 
 while f == 0:
-    print("Waiting for an NFC card..." + "\n")
     uid = pn532.read_passive_target()  # attempts to read a card
     if uid is not None:
         tag = [hex(i) for i in uid]
