@@ -13,8 +13,8 @@ tags = []
 lock = threading.Lock()
 
 def scan_tag():
-    f = 0
-    while f == 0:
+
+    while True:
         
         uid = pn532.read_passive_target()  # attempts to read a card
         if uid is not None:
@@ -26,7 +26,6 @@ def scan_tag():
                 if tags.__len__() == 2:
                     print("Two tags found")
                     time.sleep(0.05)
-                f=1
                 break
         else: 
             continue
@@ -35,10 +34,10 @@ def scan_multi():
     threads = []
     for i in range(2):
         t = threading.Thread(target=scan_tag)
-        threads.append(t)
         t.start()
+        threads.append(t)
 
     for t in threads:
         t.join()
-        
+
 scan_multi()
