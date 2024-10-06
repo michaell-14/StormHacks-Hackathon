@@ -25,4 +25,5 @@ while f == 0:
         if tags.__len__() == 2:
             f=1
             print("Two tags found")
+    time.sleep(0.05)
 
