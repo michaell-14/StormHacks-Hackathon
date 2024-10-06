@@ -72,11 +72,11 @@ while True:
 
     if not os.path.exists(animation_path):
         print(f"Error: The file {animation_path} does not exist.")
-        break
     
     animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
     print("animal drawn")
+    print(PlayAnimation)
     animal_surf.update()
 
     pygame.time.wait(1000)
