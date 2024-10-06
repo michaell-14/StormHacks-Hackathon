@@ -34,9 +34,11 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 animal_tag = tagStuff.readTag()
 animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
-animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"), 800, 350)
+animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"), 750, 350)
+animal_sad_surf = PlayAnimation(f"animations/{animal_tag}_s", 750, 350)
 
 time.sleep(2)
+
 food_tag = tagStuff.readTag()
 food_surf = PlayAnimation((f"animations/{food_tag}"), 800, 350)
 eating_food_surf = PlayAnimation(f"animations/{food_tag}_eat", 800, 350)
@@ -45,7 +47,7 @@ pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
 pygame.mixer.music.play(-1)
 eaten = False
-
+sad = False
 while True:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
@@ -58,16 +60,19 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
    
-    if not eaten:
+    if (not eaten and not sad):
         animal_surf.draw(screen)
     if eaten:
         animal_happy_surf.draw(screen)
+    if (not eaten and sad):
+        animal_sad_surf.draw(screen)
         
 
-    if not eaten:   
+    if (not eaten and not sad):   
         food_surf.draw(screen)
     if eaten:
         eating_food_surf.draw(screen)
+        
 
     if key[pygame.K_LEFT]:
         for sprite in animal_surf:
@@ -87,6 +92,8 @@ while True:
                 checkMatch(animal, food)
                 if checkMatch(animal, food) == True:
                     eaten = True
+                elif checkMatch(animal_tag, food_tag) == False:
+                    Mood = False
 
            
    
@@ -95,5 +102,6 @@ while True:
     food_surf.update()
     eating_food_surf.update()
     animal_happy_surf.update()
+    animal_sad_surf.update()
     pygame.display.update() #updates the display surface
     clock.tick(30) #while look shouldnt run faster then 60x per second
