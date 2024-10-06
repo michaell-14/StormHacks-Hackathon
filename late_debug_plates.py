@@ -48,6 +48,7 @@ input2 = ""
 
 while True:
     for event in pygame.event.get(): 
+        print("quit")
         if event.type == pygame.QUIT:
             pygame.quit() #quits
             exit()
@@ -57,13 +58,16 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
     pygame.display.update() #updates the display surface
+    print("background")
     
     if not run_once :
         input1 = tagStuff.readTag()
         run_once = True
+        print("tag read")
 
     animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
+    print("animal drawn")
     animal_surf.update()
 
     pygame.time.wait(1000)
@@ -71,11 +75,13 @@ while True:
     if not run_once1 :
         input2 = tagStuff.readTag()
         run_once1 = True
+        print("tag read again")
 
     
       
     food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
     food_surf.draw(screen)
+    print("other animal drawn")
     food_surf.update()
 
 
