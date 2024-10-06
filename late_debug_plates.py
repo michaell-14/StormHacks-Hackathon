@@ -44,7 +44,6 @@ item0_drawn = False
 item1_drawn = False
 all_sprites = pygame.sprite.Group()# Initialize the sprite group in this scope
 boolean_set = False
-boolA = False
 
 #playing the background music
 pygame.mixer.init()
