@@ -41,8 +41,8 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
 pygame.mixer.music.play(-1)
-counter = 0
-counter1 = 0
+run_once = False
+run_once1 = False
 input1 = ""
 input2 = ""
 
@@ -58,9 +58,9 @@ while True:
     screen.blit(title_surf,title_rect)
     pygame.display.update() #updates the display surface
     
-    if counter == 0 :
+    if not run_once :
         input1 = tagStuff.readTag()
-    counter = counter + 1
+        run_once = True
 
     animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
@@ -68,10 +68,11 @@ while True:
 
     pygame.time.wait(1000)
    
-    if counter == 0 :
+    if not run_once1 :
         input2 = tagStuff.readTag()
+        run_once1 = True
 
-    counter1 = counter1 + 1
+    
       
     food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
     food_surf.draw(screen)
