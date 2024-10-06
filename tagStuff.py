@@ -25,18 +25,18 @@ pn532 = PN532_I2C(i2c, debug=False)
 pn532.SAM_configuration()
 
 tagsAndNames = {
-    "d9da2303": "lion",
-    "95382303": "banana",
-    "0a451d03": "bunny",
-    "81512303": "carrot",
-    "7c172403": "monkey",
-    "5d787800": "meat",
+    "d9da2303": "Lion",
+    "95382303": "Banana",
+    "0a451d03": "Bunny",
+    "81512303": "Carrot",
+    "7c172403": "Monkey",
+    "5d787800": "Meat",
 }
 
 animalsAndFoods = {
-    "lion": "meat",
-    "bunny": "carrot",
-    "monkey": "banana"
+    "lion": "Meat",
+    "Bunny": "Carrot",
+    "Monkey": "Banana"
 }
 
 def readTag():
