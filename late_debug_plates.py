@@ -99,6 +99,7 @@ while True:
         run_once1 = True
         print(f"tag2 read: {input2}")
 
+    pygame.display.update()
     
     while item1_drawn == False:  
         food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
