@@ -41,6 +41,8 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
 pygame.mixer.music.play(-1)
+counter = 0
+counter1 = 0
 
 while True:
     for event in pygame.event.get(): 
@@ -53,8 +55,8 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
     pygame.display.update() #updates the display surface
-    counter = 0
-    if counter != 1:
+    
+    if counter == 0 :
         input1 = tagStuff.readTag()
     counter = counter + 1
 
@@ -63,8 +65,8 @@ while True:
     
 
     pygame.time.wait(1000)
-    counter1 = 0
-    if counter !=1:
+   
+    if counter == 0 :
         input2 = tagStuff.readTag()
 
     counter1 = counter1 + 1
