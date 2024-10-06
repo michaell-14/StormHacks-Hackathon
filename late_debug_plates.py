@@ -92,9 +92,9 @@ while True:
             print("Failed to create food_surf animation")
 
     # Update and draw all sprites
-    pygame.display.update()
     all_sprites.update()
     all_sprites.draw(screen)
+    pygame.display.update()
     print("Sprites updated and drawn")  # Debug print
 
     pygame.time.wait(10)
