@@ -53,12 +53,15 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
 
+    pygame.display.update()
 
     input1 = tagStuff.readTag()
 
     animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
     animal_surf.draw(screen)
+
+    pygame.time.wait(1000)
 
     input2 = tagStuff.readTag()
       
