@@ -29,7 +29,7 @@ ground_rect = ground_surf.get_rect(midbottom = (width/2,height)) #top of grass i
 #making sky surfce
 sky_surf = pygame.image.load('animations/sky.png').convert_alpha()
 sky_surf = pygame.transform.scale(sky_surf, (width, sky_surf.get_height() * width // sky_surf.get_width()))
-sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
+sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 
 #set up animal
 firstAnimal = "Lion"
@@ -53,17 +53,9 @@ while True:
     screen.blit(sky_surf, sky_rect)
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
-    
-  
- 
-   
-    
-
     animal_surf.draw(screen)
     animal_surf1.draw(screen)
-    
-
-    
+      
     key = pygame.key.get_pressed()
     if key[pygame.K_LEFT]:
     
@@ -84,10 +76,6 @@ while True:
             if sprite.rect.colliderect(sprite1.rect):
                 print("Collision detected!")
                   
-
-                
-                
-
 
     animal_surf.update()
     animal_surf1.update()
