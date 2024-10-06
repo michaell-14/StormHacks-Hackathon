@@ -26,3 +26,5 @@ def scan_multi():
             print("Two tags found")
         time.sleep(0.05)
 
+        
+scan_multi()
