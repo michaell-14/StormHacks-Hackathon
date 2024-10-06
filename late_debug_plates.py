@@ -1,3 +1,4 @@
+from xxlimited import foo
 import pygame
 from sys import exit
 from Animations import PlayAnimation
@@ -65,22 +66,32 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
     pygame.display.update() #updates the display surface
-    print("background")
-    if not run_once:
-        input1 = TESTtagStuff.start_scan_animal
-        run_once = True
-        print(f"tag read: {input1}")
     
-      
-       
-            
-    animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
-    if not run_once1:
-        input2 = TESTtagStuff.start_scan_food()
-        run_once1 = True
-        print(f"tag2 read: {input2}")
+    print("background")
+    
 
-       
+    if input1 is None:
+        print("Starting animal tag scan...")
+        TESTtagStuff.start_scan_animal()
+
+    # Once animal tag is scanned, play the animation
+    if input1:
+        animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
+        if animal_surf:
+            all_sprites.add(animal_surf)
+            print(f"Animal animation created for: {input1}")
+        else:
+            print("Failed to create animal animation")
+
+
+    # Once animal tag is scanned, play the animation
+    if input1:
+        animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
+        if animal_surf:
+            all_sprites.add(animal_surf)
+            print(f"Animal animation created for: {input1}")
+        else:
+            print("Failed to create animal animation")
         
             
     food_surf = PlayAnimation(f"animations/{input2}", 800, 370)
