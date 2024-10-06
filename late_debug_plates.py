@@ -36,6 +36,7 @@ animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
 time.sleep(2)
 food_tag = tagStuff.readTag()
 food_surf = PlayAnimation((f"animations/{food_tag}"), 800, 350)
+eating_food_surf = PlayAnimation(f"animations/{food_tag}_eat", 800, 350)
 
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
@@ -60,7 +61,7 @@ while True:
         food_surf.draw(screen)
     key = pygame.key.get_pressed()
     if eaten:
-        PlayAnimation(f"animations/{food_tag}_eat", 800, 350)
+        eating_food_surf.draw(screen)
 
     if key[pygame.K_LEFT]:
         for sprite in animal_surf:
