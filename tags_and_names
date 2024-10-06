@@ -1,6 +1,14 @@
-d9da2303: lion
-95382303: banana
-0a451d03: bunny
-81512303: carrot 
-7c172403: monkey
-5d787800: meat
+tagsAndNames = {
+    "d9da2303": "lion",
+    "95382303": "banana",
+    "0a451d03": "bunny",
+    "81512303": "carrot",
+    "7c172403": "monkey",
+    "5d787800": "meat",
+}
+
+animalsAndFoods = {
+    "lion": "meat",
+    "bunny": "carrot",
+    "monkey": "banana"
+}
