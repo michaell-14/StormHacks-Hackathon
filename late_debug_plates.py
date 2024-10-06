@@ -41,7 +41,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 
 item0_drawn = False
 item1_drawn = False
-all_sprites = ""
+all_sprites = pygame.sprite.Group()  # Initialize the sprite group in this scope
 
 #playing the background music
 pygame.mixer.init()
