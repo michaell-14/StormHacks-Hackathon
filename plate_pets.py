@@ -13,7 +13,7 @@ height= 500
 screen = pygame.display.set_mode((width,height)) #frame size
 pygame.display.set_caption('kaykaygamegame')
 clock = pygame.time.Clock()
-test_font = pygame.font.Font('animations/Pixeltype.ttf', 70)
+test_font = pygame.font.Font('Pixeltype.ttf', 70)
 
 
 #title card
@@ -85,9 +85,7 @@ while True:
                   
 
                 
-                
-
-
+    
     animal_surf.update()
     animal_surf1.update()
     pygame.display.update() #updates the display surface
