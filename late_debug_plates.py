@@ -76,10 +76,9 @@ while True:
         print("Failed to create animation")            
         break
 
-    if all_sprites:
-        all_sprites.update()
-        all_sprites.draw(screen)
-        print("Sprites updated and drawn")  # Debug prin
+    #if all_sprites:
+     #  all_sprites.draw(screen)
+      #  print("Sprites updated and drawn")  # Debug prin
 
     pygame.display.update()
     print(all_sprites)
@@ -91,6 +90,7 @@ while True:
         item0_drawn = True
     print("item0 drawn")
     animal_surf.update()
+    pygame.display.update()
 
     pygame.time.wait(1000)
    
@@ -106,6 +106,7 @@ while True:
         item1_drawn == True
     print("item1 drawn")
     food_surf.update()
+    pygame.display.update()
 
 
     key = pygame.key.get_pressed()
