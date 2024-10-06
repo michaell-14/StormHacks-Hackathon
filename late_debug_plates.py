@@ -43,6 +43,7 @@ pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
 pygame.mixer.music.play(-1)
 eaten = False
+
 while True:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
@@ -59,11 +60,10 @@ while True:
         animal_surf.draw(screen)
     if eaten:
         eating_food_surf.draw(screen)
+        
+
     if not eaten:   
         food_surf.draw(screen)
-        
-    
-    
     if eaten:
         eating_food_surf.draw(screen)
 
@@ -91,4 +91,4 @@ while True:
     eating_food_surf.update()
     animal_happy_surf.update()
     pygame.display.update() #updates the display surface
-    clock.tick(15) #while look shouldnt run faster then 60x per second
+    clock.tick(30) #while look shouldnt run faster then 60x per second
