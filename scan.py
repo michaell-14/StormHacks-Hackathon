@@ -16,10 +16,10 @@ def scan_tag():
 
     while True:
         
-        uid = pn532.read_passive_target()  # attempts to read a card
+        uid = pn532.read_passive_target() 
         if uid is not None:
             tag = [hex(i) for i in uid]
-            with lock:
+            with lock: 
                 if tag not in tags:
                     tags.append(tag)
                     print("New tag found: ", tag)
@@ -40,4 +40,5 @@ def scan_multi():
     for t in threads:
         t.join()
 
+scan_tag()
 scan_multi()
