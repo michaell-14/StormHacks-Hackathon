@@ -2,6 +2,7 @@ import pygame
 from sys import exit
 from Animations import PlayAnimation
 import tagStuff
+import time
 
 pygame.init()
 
@@ -32,6 +33,9 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 firstAnimal = "Lion"
 firstFood = "Banana"
 animal_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 250, 350)
+
+time.sleep(2)
+
 food_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 250, 350)
 
 pygame.mixer.init()
