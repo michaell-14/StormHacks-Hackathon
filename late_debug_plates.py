@@ -36,7 +36,7 @@ animal_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 250, 350)
 
 time.sleep(2)
 
-food_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 250, 350)
+food_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 800, 350)
 
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
@@ -75,6 +75,9 @@ while True:
         for sprite1 in food_surf:
             if sprite.rect.colliderect(sprite1.rect):
                 print("Collision detected!")
+                sprite1.rect.width = 0
+                sprite1.rect.height = 0
+                PlayAnimation("monkey.h")
    
     animal_surf.update()
     food_surf.update()
