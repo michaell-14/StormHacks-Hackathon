@@ -30,13 +30,12 @@ sky_surf = pygame.image.load('animations/sky.png').convert_alpha()
 sky_surf = pygame.transform.scale(sky_surf, (width, sky_surf.get_height() * width // sky_surf.get_width()))
 sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
-firstAnimal = "Lion"
-firstFood = "Banana"
-animal_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 250, 350)
+animal_tag = tagStuff.readTag()
+animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
 
 time.sleep(2)
-
-food_surf = PlayAnimation((f"animations/{tagStuff.readTag()}"), 800, 350)
+food_tag = tagStuff.readTag()
+food_surf = PlayAnimation((f"animations/{food_tag}"), 800, 350)
 
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
