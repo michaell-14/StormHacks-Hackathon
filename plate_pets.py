@@ -41,6 +41,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 pygame.mixer.init()
 pygame.mixer.music.load('this-8-bit-music-245266.mp3')
 pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.5)
 run_once = False
 run_once1 = False
 input1 = ""
