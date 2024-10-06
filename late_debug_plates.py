@@ -59,6 +59,8 @@ while True:
     if not eaten:   
         food_surf.draw(screen)
     key = pygame.key.get_pressed()
+    if eaten:
+        PlayAnimation(f"animations/{food_tag}_eat", 800, 350)
 
     if key[pygame.K_LEFT]:
         for sprite in animal_surf:
@@ -75,9 +77,8 @@ while True:
         for sprite1 in food_surf:
             if sprite.rect.colliderect(sprite1.rect):
                 print("Collision detected!")
-                sprite1.rect.width = 0
-                sprite1.rect.height = 0
-                PlayAnimation(f"animations/{food_tag}_eat", 800, 350)
+                
+                
                 eaten = True
    
 
