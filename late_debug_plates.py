@@ -50,8 +50,8 @@ input2 = ""
 
 while True:
     for event in pygame.event.get(): 
-        print("quit")
         if event.type == pygame.QUIT:
+            print("quit")
             pygame.quit() #quits
             exit()
 
@@ -65,8 +65,15 @@ while True:
     if not run_once :
         input1 = tagStuff.readTag()
         run_once = True
-        print("tag read")
+        print(f"tag read: {input1}")
+    
+    animation_path = f"animations/{input1}"
+    print(f"animation path: {animation_path}")
 
+    if not os.path.exists(animation_path):
+        print(f"Error: The file {animation_path} does not exist.")
+        break
+    
     animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
     print("animal drawn")
