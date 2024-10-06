@@ -11,14 +11,14 @@ pygame.init()
 width= 1000
 height= 500
 screen = pygame.display.set_mode((width,height)) #frame size
-pygame.display.set_caption('kaykaygamegame')
+pygame.display.set_caption('Plate Pets')
 clock = pygame.time.Clock()
 test_font = pygame.font.Font('Pixeltype.ttf', 70)
 
 animal = ''
 food = ''
 #title card
-text = "special kaykay game game"
+text = "Plate Pets"
 title_surf = test_font.render(text, False, 'Black' )
 title_rect = title_surf.get_rect(midtop = (width/2,50))
 
@@ -34,8 +34,8 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 animal_tag = tagStuff.readTag()
 animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
-animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"), 750, 350)
-animal_sad_surf = PlayAnimation(f"animations/{animal_tag}_s", 750, 350)
+animal_happy_surf = PlayAnimation((f"animations/{animal_tag}_h"), 700, 350)
+animal_sad_surf = PlayAnimation(f"animations/{animal_tag}_s", 700, 350)
 
 time.sleep(2)
 
