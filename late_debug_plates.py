@@ -76,7 +76,7 @@ while True:
                 print("Collision detected!")
                 sprite1.rect.width = 0
                 sprite1.rect.height = 0
-                PlayAnimation(f"animations/{food_tag}_h", 800, 350)
+                PlayAnimation(f"animations/{food_tag}_eat", 800, 350)
    
 
     animal_surf.update()
