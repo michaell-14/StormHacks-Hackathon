@@ -9,8 +9,8 @@ pn532 = PN532_I2C(i2c, debug=False)
 pn532.SAM_configuration()
 
 tags = []
-f = 0
 def scan_multi():
+    f = 0
     while f == 0:
         uid = pn532.read_passive_target()  # attempts to read a card
         if uid is not None:
@@ -26,5 +26,5 @@ def scan_multi():
             print("Two tags found")
         time.sleep(0.05)
 
-        
+
 scan_multi()
