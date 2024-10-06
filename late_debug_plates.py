@@ -9,7 +9,7 @@ import TESTtagStuff
 
 pygame.init()
 
-#initial info and set up
+#initial info and set up afdjajaf
 width= 1000
 height= 500
 screen = pygame.display.set_mode((width,height)) #frame size
