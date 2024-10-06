@@ -73,7 +73,7 @@ while True:
     if not os.path.exists(animation_path):
         print(f"Error: The file {animation_path} does not exist.")
     
-    animal_surf = PlayAnimation((f"animations/{input1}.png"), 200, 350)
+    animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
     print("animal drawn")
     print(PlayAnimation)
