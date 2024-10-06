@@ -29,17 +29,24 @@ class SpriteSheetAnimation(pygame.sprite.Sprite):
 
 
 def PlayAnimation(specified_animation, pos_x, pos_y):
+    print("PlayAnimation called")  # Debug print
     animation_type = f"{specified_animation}.png"
-    print(animation_type)
+    print(f"Loading sprite sheet: {animation_type}")  # Debug print
   
-    sprite_sheet = pygame.image.load(animation_type)
-    
+    try:
+        sprite_sheet = pygame.image.load(animation_type).convert_alpha()
+        print("Sprite sheet loaded successfully")  # Debug print
+    except pygame.error as e:
+        print(f"Error loading sprite sheet: {e}")
+        return None
 
     frame_width = 50
     frame_height = int(sprite_sheet.get_height())
+    print(f"Frame dimensions: {frame_width}x{frame_height}")  # Debug print
 
     animated_sprite = SpriteSheetAnimation(sprite_sheet, frame_width, frame_height, pos_x, pos_y)
     all_sprites = pygame.sprite.Group(animated_sprite)
+    print("SpriteSheetAnimation instance created and added to sprite group")  # Debug print
 
     return all_sprites
 
