@@ -41,6 +41,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom's 370
 
 item0_drawn = False
 item1_drawn = False
+all_sprites = ""
 
 #playing the background music
 pygame.mixer.init()
@@ -65,56 +66,37 @@ while True:
     pygame.display.update() #updates the display surface
     print("background")
     
-    if not run_once :
+    if not run_once:
         input1 = tagStuff.readTag()
         run_once = True
         print(f"tag read: {input1}")
     
-    all_sprites = PlayAnimation(f"animations/{input1}", 200, 350)
+        animal_surf = PlayAnimation(f"animations/{input1}", 200, 350)
+        if animal_surf:
+            all_sprites.add(animal_surf)
+            print("item0 drawn")
+        else:
+            print("Failed to create animal_surf animation")
 
-    if all_sprites is None:
-        print("Failed to create animation")            
-        break
-
-    #if all_sprites:
-     #  all_sprites.draw(screen)
-      #  print("Sprites updated and drawn")  # Debug prin
-
-    pygame.display.update()
-    #print(all_sprites)
-
-    while item0_drawn == False:
-        animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
-        animal_surf.draw(screen)
-        #print(PlayAnimation)
-        item0_drawn = True
-    print("item0 drawn")
-    animal_surf.update()
-    pygame.display.update()
-
-    pygame.time.wait(1000)
-   
-    if not run_once1 :
+    if not run_once1:
         input2 = tagStuff.readTag()
         run_once1 = True
         print(f"tag2 read: {input2}")
 
-    all_sprites = PlayAnimation(f"animations/{input1}", 200, 350)
+        food_surf = PlayAnimation(f"animations/{input2}", 800, 370)
+        if food_surf:
+            all_sprites.add(food_surf)
+            print("item1 drawn")
+        else:
+            print("Failed to create food_surf animation")
 
-    if all_sprites is None:
-        print("Failed to create animation")            
-        break
+    # Update and draw all sprites
+
+    all_sprites.update()
+    all_sprites.draw(screen)
+    print("Sprites updated and drawn")  # Debug print
 
     pygame.display.update()
-    
-    while item1_drawn == False:  
-        food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
-        food_surf.draw(screen)
-        item1_drawn == True
-    print("item1 drawn")
-    food_surf.update()
-    pygame.display.update()
-
     pygame.time.wait(1000)
 
     key = pygame.key.get_pressed()
