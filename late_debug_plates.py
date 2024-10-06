@@ -51,8 +51,8 @@ pygame.mixer.music.load('this-8-bit-music-245266.mp3')
 pygame.mixer.music.play(-1)
 run_once = False
 run_once1 = False
-input1 = ""
-input2 = ""
+input1 = None
+input2 = None
 
 while True:
     for event in pygame.event.get(): 
