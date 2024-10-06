@@ -99,6 +99,12 @@ while True:
         run_once1 = True
         print(f"tag2 read: {input2}")
 
+    all_sprites = PlayAnimation(f"animations/{input1}", 200, 350)
+
+    if all_sprites is None:
+        print("Failed to create animation")            
+        break
+
     pygame.display.update()
     
     while item1_drawn == False:  
