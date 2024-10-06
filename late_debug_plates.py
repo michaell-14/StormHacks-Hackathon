@@ -108,6 +108,7 @@ while True:
     food_surf.update()
     pygame.display.update()
 
+    pygame.time.wait(1000)
 
     key = pygame.key.get_pressed()
 
