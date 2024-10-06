@@ -52,7 +52,7 @@ while True:
     screen.blit(sky_surf, sky_rect)
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
-    pygame.display.update()
+    
 
     input1 = tagStuff.readTag()
 
