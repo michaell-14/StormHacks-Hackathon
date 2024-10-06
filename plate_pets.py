@@ -30,7 +30,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 #set up animal
 animal_size = 100
-animal_surf = PlayAnimation("animations/Lion", 250, 350)
+animal_surf = PlayAnimation("animations/meat", 250, 350)
 animal_surf1 = PlayAnimation("animations/Monkey", 600, 350)
 
 #playing the background music
