@@ -67,7 +67,7 @@ while True:
         run_once = True
         print(f"tag read: {input1}")
     
-    animation_path = f"animations/{input1}"
+    animation_path = f"animations/{input1}.png"
     print(f"animation path: {animation_path}")
 
     if not os.path.exists(animation_path):
