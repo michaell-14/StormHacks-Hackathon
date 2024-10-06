@@ -53,13 +53,14 @@ while True:
     screen.blit(sky_surf, sky_rect)
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
-    
-  
+   
 
     animal_surf.draw(screen)
     if not eaten:   
         food_surf.draw(screen)
+        
     key = pygame.key.get_pressed()
+    
     if eaten:
         eating_food_surf.draw(screen)
 
@@ -85,5 +86,6 @@ while True:
 
     animal_surf.update()
     food_surf.update()
+    eating_food_surf.update()
     pygame.display.update() #updates the display surface
-    clock.tick(60) #while look shouldnt run faster then 60x per second
+    clock.tick(15) #while look shouldnt run faster then 60x per second
