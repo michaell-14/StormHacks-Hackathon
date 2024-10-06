@@ -90,10 +90,10 @@ while True:
         for sprite1 in food_surf:
             if (sprite.rect.colliderect(sprite1.rect)):
                 print("Collision detected!")                       
-                checkMatch(animal, food)
-                if checkMatch(animal, food) == True:
+                check = checkMatch(animal_tag, food_tag)
+                if check == True:
                     eaten = True
-                elif checkMatch(animal_tag, food_tag) == False:
+                elif check == False:
                     sad = True
 
            
