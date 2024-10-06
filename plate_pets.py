@@ -54,22 +54,22 @@ while True:
     screen.blit(title_surf,title_rect)
 
 
-    while True:
-        input1 = tagStuff.readTag()
-
-        animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
-        animal_surf.draw(screen)
-        animal_surf.draw(screen)
-
-        pygame.time.wait(1000)
-
-        input2 = tagStuff.readTag()
-      
-        food_surf = PlayAnimation((f"animations/{input2}"), 800, 350)
-        food_surf.draw(screen)
-        food_surf.draw(screen)
-        break
     
+    input1 = tagStuff.readTag()
+
+    animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
+    animal_surf.draw(screen)
+    animal_surf.draw(screen)
+
+    pygame.time.wait(1000)
+
+    input2 = tagStuff.readTag()
+      
+    food_surf = PlayAnimation((f"animations/{input2}"), 800, 350)
+    food_surf.draw(screen)
+    food_surf.draw(screen)
+
+
     key = pygame.key.get_pressed()
 
     if key[pygame.K_LEFT]:
