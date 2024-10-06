@@ -52,10 +52,11 @@ while True:
     screen.blit(sky_surf, sky_rect)
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
+    pygame.display.update() #updates the display surface
 
-
-    
-    input1 = tagStuff.readTag()
+    if counter != 1:
+        input1 = tagStuff.readTag()
+    counter = 1
 
     animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
     animal_surf.draw(screen)
@@ -63,9 +64,12 @@ while True:
 
     pygame.time.wait(1000)
 
-    input2 = tagStuff.readTag()
+    if counter !=1:
+        input2 = tagStuff.readTag()
+
+    counter1 = 1
       
-    food_surf = PlayAnimation((f"animations/{input2}"), 800, 350)
+    food_surf = PlayAnimation((f"animations/{input2}"), 800, 370)
     food_surf.draw(screen)
 
 
@@ -96,5 +100,5 @@ while True:
 
     animal_surf.update()
     food_surf.update()
-    pygame.display.update() #updates the display surface
+    
     clock.tick(60) #while look shouldnt run faster then 60x per second
