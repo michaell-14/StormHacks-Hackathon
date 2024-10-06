@@ -85,7 +85,7 @@ while True:
             if (sprite.rect.colliderect(sprite1.rect)):
                 print("Collision detected!")                       
                 checkMatch(animal, food)
-                if checkMatch() == True:
+                if checkMatch(animal, food) == True:
                     eaten = True
 
            
