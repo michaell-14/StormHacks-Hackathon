@@ -59,7 +59,7 @@ while True:
     if not eaten:
         animal_surf.draw(screen)
     if eaten:
-        eating_food_surf.draw(screen)
+        animal_happy_surf.draw(screen)
         
 
     if not eaten:   
