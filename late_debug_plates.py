@@ -48,6 +48,7 @@ pygame.mixer.music.load('this-8-bit-music-245266.mp3')
 pygame.mixer.music.play(-1)
 eaten = False
 sad = False
+
 while True:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
@@ -68,7 +69,7 @@ while True:
         animal_sad_surf.draw(screen)
         
 
-    if (not eaten and not sad):   
+    if (not eaten):   
         food_surf.draw(screen)
     if eaten:
         eating_food_surf.draw(screen)
@@ -93,7 +94,7 @@ while True:
                 if checkMatch(animal, food) == True:
                     eaten = True
                 elif checkMatch(animal_tag, food_tag) == False:
-                    Mood = False
+                    sad = True
 
            
    
