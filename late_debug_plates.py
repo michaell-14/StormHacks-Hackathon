@@ -81,6 +81,9 @@ while True:
         all_sprites.draw(screen)
         print("Sprites updated and drawn")  # Debug prin
 
+    pygame.display.update()
+    print(all_sprites)
+
     while item0_drawn == False:
         animal_surf = PlayAnimation((f"animations/{input1}"), 200, 350)
         animal_surf.draw(screen)
