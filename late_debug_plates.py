@@ -2,6 +2,7 @@ import pygame
 from sys import exit
 from Animations import PlayAnimation
 import tagStuff
+from tagStuff import checkMatch
 import time
 
 pygame.init()
@@ -80,7 +81,7 @@ while True:
             
     for sprite in animal_surf:
         for sprite1 in food_surf:
-            if (sprite.rect.colliderect(sprite1.rect)):
+            if (sprite.rect.colliderect(sprite1.rect) and checkMatch() == True):
                 print("Collision detected!")                       
                 eaten = True
            
