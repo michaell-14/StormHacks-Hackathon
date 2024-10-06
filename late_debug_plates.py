@@ -35,8 +35,7 @@ sky_rect = sky_surf.get_rect(midtop = (width/2,0)) #bottom s 370
 
 animal_tag = tagStuff.readTag()
 
-if animal_tag != "lion" or "bunny" or "monkey":
-    title_surf = test_font.render('Invalid animal tag', False, 'Black' )
+if animal_tag not in ["lion", "bunny", "monkey"]:
     sys.stderr.write('Invalid animal tag\n')
 
 animal_surf = PlayAnimation((f"animations/{animal_tag}"), 250, 350)
@@ -47,8 +46,7 @@ time.sleep(2)
 
 food_tag = tagStuff.readTag()
 
-if food_tag != "banana" or "meat" or "carrot":
-    title_surf = test_font.render('Invalid food tag', False, 'Black' )
+if food_tag not in ["banana", "meat", "carrot"]:
     sys.stderr.write('Invalid food tag\n')
 
 food_surf = PlayAnimation((f"animations/{food_tag}"), 800, 350)
