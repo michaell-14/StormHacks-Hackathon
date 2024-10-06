@@ -15,13 +15,14 @@ tag2 = None
 while True:
     print("Waiting for an NFC card..." + "\n")
     uid = pn532.read_passive_target() #attempts to read a card
-    if tag1 is None:
+    if uid is not None:
+        if tag1 is None:
             tag1 = [hex(i) for i in uid]
             print("tag1: ", tag1)
-    elif [hex(i) for i in uid] == tag1:
-        print("Same card")
-    else:
-        tag2 = [hex(i) for i in uid]
+        elif [hex(i) for i in uid] == tag1:
+            print("Same card")
+        else:
+            tag2 = [hex(i) for i in uid]
         print("tag2: ", tag2)
         break
     time.sleep(0.25)
