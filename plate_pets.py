@@ -1,4 +1,5 @@
 import tagStuff #import Victor's tagStuff.py file that contains the readTag function which returns the value associated with tag's UID
+import time #import time module to use sleep function
 
 import pygame
 from sys import exit
@@ -68,12 +69,3 @@ while True:
     animal_surf.update()
     pygame.display.update() #updates the display surface
     clock.tick(60) #while look shouldnt run faster then 60x per second
-
-    animalRead = tagStuff.readTag() #call Victor's readTag function to get the value associated with the tag's UID
-    foodRead = tagStuff.readTag() #call Victor's readTag function to get the value associated with the tag's UID
-    checkMatch = tagStuff.checkMatch(animalRead, foodRead) #call Victor's checkMatch function to check if the animal and food match
-
-    if checkMatch == True:
-        print("Match!")
-    else:
-        print("No match.")
