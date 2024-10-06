@@ -76,8 +76,9 @@ while True:
                 print("Collision detected!")
                 sprite1.rect.width = 0
                 sprite1.rect.height = 0
-                PlayAnimation(f"animations/{food_surf}.h", 800, 350)
+                PlayAnimation(f"animations/{food_tag}", 800, 350)
    
+
     animal_surf.update()
     food_surf.update()
     pygame.display.update() #updates the display surface
