@@ -30,6 +30,7 @@ class SpriteSheetAnimation(pygame.sprite.Sprite):
 
 def PlayAnimation(specified_animation, pos_x, pos_y):
     animation_type = f"{specified_animation}.png"
+    print(animation_type)
   
     sprite_sheet = pygame.image.load(animation_type)
     
