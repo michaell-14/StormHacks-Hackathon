@@ -58,7 +58,10 @@ while True:
     screen.blit(ground_surf,ground_rect)
     screen.blit(title_surf,title_rect)
     
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     if input1_filled:
         input1 = tagStuff.readTag()
     else: 
